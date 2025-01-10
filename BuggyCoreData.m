@@ -1,0 +1,3 @@
+In Objective-C, a subtle bug can occur when dealing with memory management and `NSManagedObjectContext`'s. If you create a new managed object, make changes, and then don't explicitly save the context, the changes might not persist. This is because the changes are only saved to the context's memory until you call `save:`.
+
+This becomes a problem when working with asynchronous operations or background threads. If a background thread makes changes but doesn't handle the context saving, the changes will be lost when the thread finishes, leading to data inconsistency.
